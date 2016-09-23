@@ -1,0 +1,197 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+<v:variable.set name="pageIdHonen" value="8" /><v:variable.set name="pageIdHonmaschinen" value="12" /><v:variable.set name="pageIdEntgraten" value="9" /><v:variable.set name="pageIdEvents" value="5" /><v:variable.set name="pageIdNews" value="4" /><v:variable.set name="pageIdKontakt" value="21" /><v:variable.set name="pageIdUnternehmen" value="1" /><v:variable.set name="pageIdImpressum" value="23" /><v:variable.set name="pageIdAGB" value="24" /><v:variable.set name="pageIdStellenmarkt" value="22" /><v:variable.set name="pageSearch" value="27" /><v:variable.set name="contentSchneidbelaege" value="106" />
+
+<f:render partial="fluid-header" arguments="{_all}" />
+
+<!–TYPO3SEARCH_begin–>
+<div class="main-wrapper">
+    <f:for each="{content}" as="item">
+        <f:if condition="{item.data.list_type} == 'indexed_search'">
+            <f:then>
+                <f:render partial="fluid-search" arguments="{_all}" />
+            </f:then>
+            <f:else>
+                <f:switch expression="{item.data.layout}">
+                    <f:case value="1">
+                        <f:if condition="{superheroOpen}==1">
+                            <f:then>
+                                <v:variable.unset name="superheroOpen" />
+                                <f:render partial="fluid-superhero-right" arguments="{_all}" />
+                            </f:then>
+                            <f:else>
+                                <v:variable.set name="superheroOpen" value="1" />
+                                <f:render partial="fluid-superhero-left" arguments="{_all}" />
+                            </f:else>
+                        </f:if>
+                    </f:case>
+                    <f:case value="2">
+                        <f:render partial="fluid-singlecol" arguments="{item:item,border:1,white:1}" />
+                    </f:case>
+                    <f:case value="20">
+                        <f:render partial="fluid-singlecol" arguments="{item:item,border:1}" />
+                    </f:case>
+                    <f:case value="21">
+                        <f:render partial="fluid-singlecol" arguments="{item:item,white:1}" />
+                    </f:case>
+                    <f:case value="22">
+                        <f:render partial="fluid-singlecol" arguments="{item:item}" />
+                    </f:case>
+                    <f:case value="23">
+                        <f:render partial="fluid-singlecol" arguments="{item:item,columns:1}" />
+                    </f:case>
+                    <f:case value="24">
+                        <f:render partial="fluid-singlecol" arguments="{item:item,columns:1,white:1}" />
+                    </f:case>
+                    <f:case value="26">
+                        <f:render partial="fluid-singlecol" arguments="{item:item,graphic:1}" />
+                    </f:case>
+                    <f:case value="80">
+                        <f:render partial="fluid-singlecol" arguments="{item:item,slideshow:1}" />
+                    </f:case>
+                    <f:case value="81">
+                        <f:render partial="fluid-fullpicture" arguments="{item:item}" />
+                    </f:case>
+                    <f:case value="82">
+                        <f:render partial="fluid-fullpicture" arguments="{item:item,slideshow:1}" />
+                    </f:case>
+                    <f:case value="3">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,outerspacing:1}" />
+                    </f:case>
+                    <f:case value="4">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,outerspacing:1,order:1}" />
+                    </f:case>
+                    <f:case value="58">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,transparent:1,white:1}" />
+                    </f:case>
+                    <f:case value="59">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,white:1,order:1,shifted:1}" />
+                    </f:case>
+                    <f:case value="60">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,transparent:1,contentSchneidbelaege:contentSchneidbelaege}" />
+                    </f:case>
+                    <f:case value="61">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,transparent:1,order:1,contentSchneidbelaege:contentSchneidbelaege}" />
+                    </f:case>
+                    <f:case value="62">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,slideshow:1,pageIdHonmaschinen:pageIdHonmaschinen}" />
+                    </f:case>
+                    <f:case value="63">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,order:1,slideshow:1,pageIdHonmaschinen:pageIdHonmaschinen}" />
+                    </f:case>
+                    <f:case value="64">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,white:1}" />
+                    </f:case>
+                    <f:case value="65">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,order:1,white:1}" />
+                    </f:case>
+                    <f:case value="66">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,info:1,white:1}" />
+                    </f:case>
+                    <f:case value="67">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,info:1,order:1,white:1}" />
+                    </f:case>
+                    <f:case value="68">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,imgoverlay:1,outerspacing:1,}" />
+                    </f:case>
+                    <f:case value="69">
+                        <f:render partial="fluid-twocol-textimg" arguments="{item:item,imgoverlay:1,outerspacing:1,order:1}" />
+                    </f:case>
+                    <f:case value="5">
+                        <f:render partial="fluid-event-widget" arguments="{_all}" />
+                    </f:case>
+                    <f:case value="6">
+                        <f:render partial="fluid-news-widget" arguments="{_all}" />
+                    </f:case>
+                    <f:case value="30">
+                        <v:variable.set name="heroType" value="0" />
+                        <f:render partial="fluid-hero" arguments="{_all}" />
+                    </f:case>
+                    <f:case value="31">
+                        <v:variable.set name="heroType" value="1" />
+                        <f:render partial="fluid-hero" arguments="{_all}" />
+                    </f:case>
+                    <f:case value="50">
+                        <f:render partial="fluid-heromachines" arguments="{_all}" />
+                    </f:case>
+                    <f:case value="70">
+                        <f:render partial="fluid-fullimageparallax" arguments="{_all}" />
+                    </f:case>
+                    <f:case value="90">
+                        <f:render partial="fluid-impression" arguments="{item:item,type:'two-images'}" />
+                    </f:case>
+                    <f:case value="91">
+                        <f:render partial="fluid-impression" arguments="{item:item,type:'eight-images',white:1}" />
+                    </f:case>
+                    <f:case value="100">
+                        <f:render partial="fluid-singlecol" arguments="{item:item,facts:1}" />
+                    </f:case>
+                    <f:case value="101">
+                        <f:render partial="fluid-singlecol" arguments="{item:item,facts:1,white:1}" />
+                    </f:case>
+                    <f:case value="120">
+                        <f:render partial="fluid-tooltip" arguments="{item:item,type:'tooltip-1'}" />
+                    </f:case>
+                    <f:case value="121">
+                        <f:render partial="fluid-tooltip" arguments="{item:item,type:'tooltip-2'}" />
+                    </f:case>
+                    <f:case value="122">
+                        <f:render partial="fluid-tooltip" arguments="{item:item,type:'tooltip-3'}" />
+                    </f:case>
+                    <f:case value="140">
+                        <f:render partial="fluid-title" arguments="{item:item,white:1}" />
+                    </f:case>
+                    <f:case value="141">
+                        <f:render partial="fluid-title" arguments="{item:item}" />
+                    </f:case>
+                    <f:case value="150">
+                        <f:render partial="fluid-form" arguments="{item:item}" />
+                    </f:case>
+                    <f:case value="160">
+                        <f:render partial="fluid-address" arguments="{item:item}" />
+                    </f:case>
+                    <f:case value="170">
+                        <f:render partial="fluid-stellenmarkt" arguments="{item:item,pageIdStellenmarkt:pageIdStellenmarkt}" />
+                    </f:case>
+                    <f:case value="180">
+                        <f:render partial="fluid-about-left" arguments="{item:item}" />
+                    </f:case>
+                    <f:case value="181">
+                        <f:render partial="fluid-about-right" arguments="{item:item}" />
+                    </f:case>
+                    <f:case default="TRUE">
+                    </f:case>
+                </f:switch>
+
+            </f:else>
+        </f:if>
+    </f:for>
+</div>
+<!–TYPO3SEARCH_end–>
+
+<f:render partial="fluid-footer" arguments="{_all}" />
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-83796017-1', 'auto');
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+
+</script>
+
+
+
+<f:comment>
+    // memory help for debugging:
+
+    <f:debug>{item}</f:debug>
+    <f:debug>{data}</f:debug>
+    <f:debug>{settings}</f:debug>
+    <f:debug>{file}</f:debug>
+    <f:image src="{item.files.0.originalFile.uid}" width="100" />
+    <v:content.render contentUids="{0:item.uid}" />
+</f:comment>

@@ -1,0 +1,81 @@
+@import "./src/css/vars.less";
+
+.com-footer {
+  position: relative;
+  width: 100%;
+  background: white;
+  box-shadow: 1px 0px 2px rgba(0,0,0,0.4);
+
+  .col {
+    position: relative;
+    padding: 40px 0 0;
+  }
+
+  .left, .right, .middle {
+    text-align: center;
+  }
+
+  .right {
+    padding-bottom: 10px;
+  }
+
+  .textlabel{
+    color: @col-grey;
+  }
+
+  .link-icon {
+    position: relative;
+    top: 8px;
+    transition: all @speed-fast;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    .icon {
+      font-size: 1.7rem;
+      line-height: 0;
+    }
+  }
+
+  .link-text {
+    color: @col-antrazit;
+    font-weight: 300;
+    font-style: normal;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 30px;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+@media screen and @desktop {
+
+  .col {
+    float: left;
+    padding: 15px 0;
+  }
+  
+  .left {
+    text-align: left;
+  }
+  .left, .right {
+    width: 40%;
+  }
+  .middle {
+    width: 20%
+  }
+  .right {
+    padding-bottom: 0;
+    text-align: right;
+  }
+
+  .link-text {
+    display: inline;
+    margin-bottom: 0;
+    margin-left: 20px;
+  }
+}
+}

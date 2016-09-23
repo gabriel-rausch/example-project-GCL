@@ -1,0 +1,26 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+
+<div class="pattern com com-eventwidget">
+    
+    <h2 class="widget-title h2">{item.data.header}</h2>
+    
+    <div class="main-content">
+      <div class="main-content-inner">
+        <div class="events">
+          <div class="events-inner">
+            <v:variable.set name="events" value="{v:content.get(column:'0', pageUid:'{pageIdEvents}', render:'FALSE')}" />
+            <f:for each="{events}" as="event">
+              <div class="event">
+                <span class="event-title">{event.header}</span>
+                <f:format.html>{event.bodytext}</f:format.html>
+              </div>
+            </f:for>
+          </div>
+        </div>
+        <div class="nav next"><span class="icon icon-arrow-next"></span></div>
+        <div class="nav prev"><span class="icon icon-arrow-prev"></span></div>
+      </div>
+    </div>
+
+</div>

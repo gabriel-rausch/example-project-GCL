@@ -1,0 +1,110 @@
+@import "./src/css/vars.less";
+@import "./src/css/mixins.less";
+@import "./src/css/elements.less";
+@import "./src/css/elements-text.less";
+
+.com-singlecol.graphic {
+
+  h3 {
+    white-space: normal;
+    color: @col-greenDark;
+  }
+
+  table {
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+  }
+
+  td {
+    display: block;
+    vertical-align: bottom;
+    white-space: nowrap;
+
+    &:nth-child(2) {
+      text-align: center;
+      vertical-align: middle;
+      &:before {
+        .icon();
+        .get-icon-arrow-next();
+        display: inline-block;
+        transform: rotate(90deg);
+        position: relative;
+        left: -60px;
+      }
+    }
+    p {
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+@media screen and @phone {
+
+}
+
+@media screen and @tablet {
+
+  table {
+    max-width: 100%;
+
+    tr {
+      white-space: nowrap;
+    }
+  }
+
+  h3 {
+    .h2();
+    color: @col-greenDark;
+    white-space: nowrap;
+  }
+
+  td {
+    display: inline-block;
+    width: 140px;
+    padding: 0;
+
+    &:nth-child(2) {
+      display: table-cell;
+      width: 50px;
+
+      &:before {
+        transform: rotate(0);
+        position: static;
+      }
+    }
+
+    img {
+      height: 140px;
+    }
+  }
+}
+
+  @media screen and @large {
+
+    td {
+      width: 250px;
+      img {
+        height: 250px;
+      }
+    }
+  }
+  @media screen and @large1500 {
+
+    td {
+      width: 300px;
+      img {
+        height: 300px;
+      }
+    }
+  }
+}
+

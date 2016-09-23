@@ -1,0 +1,31 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+
+<div class="pattern com-fullpictue">
+  <div class="main-content">
+
+    <f:if condition="{slideshow} == 1">
+      <f:then>
+        <div class="bg">
+          <f:render partial="fluid-slideshow" arguments="{item:item,cite:1,dark:1}" />
+        </div>
+        <div class="quote">
+          <div class="description">{item.files.0.description}</div>
+          <div class="cite">{item.files.0.alternative}</div>
+        </div>
+      </f:then>
+
+      <f:else>
+        <div class="bg">
+          <f:render partial="fluid-image" arguments="{data: {uid:'{item.files.0.originalFile.uid}', type:'cover'}}" />
+        </div>
+
+        <div class="quote">
+          <div class="description">{item.files.0.description}</div>
+          <div class="cite">{item.files.0.alternative}</div>
+        </div>
+      </f:else>
+    </f:if>
+
+  </div>
+</div>

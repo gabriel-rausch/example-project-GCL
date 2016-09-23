@@ -1,0 +1,32 @@
+{
+  "author": "gabriel rausch",
+  "name": "kad",
+  "version": "0.0.1",
+  "description": "webapp-static for kad",
+  "repository": {},
+  "scripts": {
+    "start": "grunt connect"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "google-closure-compiler": "latest",
+    "google-closure-library": "latest",
+    "grunt": "~0.4.0",
+    "grunt-autoprefixer": "latest",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-focus": "^1.0.0",
+    "grunt-ftp-push": "latest",
+    "grunt-jscs": "latest",
+    "grunt-php": "^1.5.1",
+    "grunt-pixrem": "^0.1.2",
+    "grunt-rem-to-pixels": "^0.2.0",
+    "grunt-remfallback": "0.0.5",
+    "load-grunt-tasks": "latest",
+    "time-grunt": "latest"
+  }
+}

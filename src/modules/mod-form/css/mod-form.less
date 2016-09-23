@@ -1,0 +1,134 @@
+@import "./src/css/vars.less";
+@import "./src/css/elements.less";
+@import "./src/css/elements-text.less";
+@import "./src/css/mixins.less";
+
+.com-form {
+
+  .inner {
+    padding: 0 2rem;
+    box-sizing: border-box;
+    margin: @padding-v-small 0;
+  }
+
+  h2, p {
+    text-align: center;
+  }
+
+  label {
+    position: relative;
+    top: 112px;
+    left: 6px;
+    color: transparent;
+    em {
+      display: none;
+    }
+    strong {
+      position: absolute;
+      top: 0;
+      left:0;
+    }
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+
+    li {
+      text-align: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      overflow: visible !important;
+      width: 100%;
+    }
+  }
+
+  fieldset, .csc-mailform fieldset {
+    border: none;
+    ol {
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: block;
+        width: 100%;
+        float: left;
+      }
+    }
+  }
+
+  input, select, textarea {
+    width: 100%;
+    display: inline-block;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid @col-grey;
+    margin-top: 20px;
+    padding: 0.7rem 0.4rem;
+    box-sizing: border-box;
+    color: @col-antrazit;
+
+    &:focus {
+      border-bottom: 1px solid @col-greenDark;
+    }
+  }
+
+  textarea {
+    border: 1px solid @col-grey;
+    height: 400px;
+  }
+
+  select {
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 1px;
+      background: red;
+      .icon();
+      .get-icon-dropdown();
+    }
+  }
+
+  .csc-form-element-submit {
+    label {
+      display: none;
+    }
+    input[type=submit] {
+      .link-btn();
+      width: auto;
+
+    }
+  }
+
+@media screen and @tablet {
+
+  .inner {
+    margin: @padding-v-medium 20%;
+  }
+
+  input, select, textarea {
+    margin-top: 40px;
+  }
+
+  fieldset, .csc-mailform fieldset {
+    ol {
+      li {
+        width: 49%;
+
+        &:first-child {
+          margin-right: 2%;
+        }
+      }
+    }
+  }
+}
+}

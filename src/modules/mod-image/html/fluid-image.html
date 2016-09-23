@@ -1,0 +1,31 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+
+<f:if condition="{data.width}">
+    <f:then>
+        <div class="mod com-image {data.type} width" data-srcset="
+                  {f:uri.image(src:data.uid, width:'380c')},
+                  {f:uri.image(src:data.uid, width:'750c')},
+                  {f:uri.image(src:data.uid, width:'1000c')},
+                  {f:uri.image(src:data.uid, width:'1400c')},
+                  {f:uri.image(src:data.uid, width:'1920c')}">
+            <noscript>
+                <f:image src="{data.uid}" width="1000c" />
+            </noscript>
+        </div>
+    </f:then>
+
+    <f:else>
+
+        <div class="mod com-image {data.type}" data-srcset="
+                  {f:uri.image(src:data.uid, height:'380c')},
+                  {f:uri.image(src:data.uid, height:'750c')},
+                  {f:uri.image(src:data.uid, height:'1000c')},
+                  {f:uri.image(src:data.uid, height:'1400c')},
+                  {f:uri.image(src:data.uid, height:'1920c')}">
+            <noscript>
+                <f:image src="{data.uid}" height="1000c" />
+            </noscript>
+        </div>
+    </f:else>
+</f:if>

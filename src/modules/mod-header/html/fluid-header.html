@@ -1,0 +1,37 @@
+<header class="mod com-header">
+    <div class="main-content">
+        <div class="main-content-inner">
+            <f:if condition="{f:cObject(typoscriptObjectPath: \"lib.language\")} == 'EN'">
+            <f:then>
+              <a href="/en/" class="logo"></a>
+            </f:then>
+            <f:else>
+              <a href="/" class="logo"></a>
+            </f:else>
+            </f:if>
+
+            <a href="#" class="mobile-nav"><i class="icon icon-hamburger"></i></a>
+
+            <f:render partial="fluid-nav" arguments="{_all}" />
+
+            <ul class="lang-picker">
+              <li class="li-1 ">
+                <a href="/" class="a-1"><span class="span-1">DE</span></a>
+                <ul class="ul-2">
+                  <li class="li-2"><a href="/en/" class="a-1"><span class="span-1">EN</span></a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <form action="{f:uri.page(pageUid: pageSearch)}" method="post">
+                <input class="search-input" type="text" placeholder="Suchbegriff eingeben" autocomplete="off" name="tx_indexedsearch[sword]">
+                <label for="search-btn" class="search-btn"><i class="icon icon-search"></i></label>
+                <input id="search-btn" type="submit" name="tx_indexedsearch[submit_button]"></input>
+            </form>
+            <a class="search-close" href="#"><i class="icon icon-hamburger-close"></i></a>
+        </div>
+    </div>
+</header>
+
+<f:cObject typoscriptObjectPath="lib.subnav" />
+

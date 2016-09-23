@@ -1,0 +1,37 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+
+<div class="pattern com-impression{f:if(condition: '{white} == 1', then: ' white')}">
+  <div class="main-content">
+
+    <f:if condition="{type} == 'two-images'">
+      <div class="impress-left">
+        <h2 class="nowrap">{item.files.0.alternative}</h2>
+        <div class="impress-bg">
+          <f:render partial="fluid-image" arguments="{data: {uid:'{item.files.0.originalFile.uid}', type:'cover'}}" />
+        </div>
+      </div>
+      <div class="impress-right">
+        <h2 class="nowrap">{item.files.1.alternative}</h2>
+        <div class="impress-bg">
+          <f:render partial="fluid-image" arguments="{data: {uid:'{item.files.1.originalFile.uid}', type:'cover'}}" />
+        </div>
+      </div>
+      <div class="clear"></div>
+    </f:if>
+
+    <f:if condition="{type} == 'eight-images'">
+      <h2 class="title-impress-2">{item.data.header}</h2>
+      <div class="impress-grid"><f:render partial="fluid-image" arguments="{data: {uid:'{item.files.0.originalFile.uid}', type:'cover'}}" /></div>
+      <div class="impress-grid"><f:render partial="fluid-image" arguments="{data: {uid:'{item.files.1.originalFile.uid}', type:'cover'}}" /></div>
+      <div class="impress-grid"><f:render partial="fluid-image" arguments="{data: {uid:'{item.files.2.originalFile.uid}', type:'cover'}}" /></div>
+      <div class="impress-grid"><f:render partial="fluid-image" arguments="{data: {uid:'{item.files.3.originalFile.uid}', type:'cover'}}" /></div>
+      <div class="impress-grid"><f:render partial="fluid-image" arguments="{data: {uid:'{item.files.4.originalFile.uid}', type:'cover'}}" /></div>
+      <div class="impress-grid"><f:render partial="fluid-image" arguments="{data: {uid:'{item.files.5.originalFile.uid}', type:'cover'}}" /></div>
+      <div class="impress-grid"><f:render partial="fluid-image" arguments="{data: {uid:'{item.files.6.originalFile.uid}', type:'cover'}}" /></div>
+      <div class="impress-grid"><f:render partial="fluid-image" arguments="{data: {uid:'{item.files.7.originalFile.uid}', type:'cover'}}" /></div>
+      <div class="clear"></div>
+    </f:if>
+
+  </div>
+</div>

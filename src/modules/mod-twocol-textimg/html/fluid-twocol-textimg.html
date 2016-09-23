@@ -1,0 +1,60 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+<f:comment>
+  Variants:
+    slideshow
+    white
+    transparent
+    info
+    imgoverlay
+    order
+</f:comment>
+<div class="pattern com com-twocoltextimg{f:if(condition: '{outerspacing} == 1', then: ' outerspacing')}{f:if(condition: '{shifted} == 1', then: ' shifted')}{f:if(condition: '{slideshow} == 1', then: ' slideshow')}{f:if(condition: '{white} == 1', then: ' white')}{f:if(condition: '{info} == 1', then: ' info')}{f:if(condition: '{imgoverlay} == 1', then: ' imgoverlay')}{f:if(condition: '{transparent} == 1', then: ' transparent')}{f:if(condition: '{item.data.uid} == {contentSchneidbelaege}', then: ' contentSchneidbelaege')}"
+     id="uid{item.data.uid}">
+  <div class="main-content">
+    <div class="main-content-inner">
+      <div class="{f:if(condition: '{order} == 1', then: 'col-right', else: 'col-left')}">
+        <div class="content">
+          <h2 class="{f:if(condition: '{pageIdHonmaschinen} == {item.data.pid}', then: 'pageHonmaschinen')}">{item.data.header}</h2>
+          <f:format.html>{item.data.bodytext}</f:format.html>
+        </div>
+      </div>
+
+      <div class="{f:if(condition: '{order} == 1', then: 'col-left flex', else: 'col-right flex')}">
+
+        <f:if condition="{slideshow} == 1">
+          <f:then>
+            <f:render partial="fluid-slideshow" arguments="{item:item,outside:1}" />
+          </f:then>
+          <f:else>
+            <f:render partial="fluid-image" arguments="{data: {uid:'{item.files.0.originalFile.uid}', type:'{f:if(condition: \'{white} == 1\', then: \'contain\', else: \'cover\')}'}}" />
+          </f:else>
+        </f:if>
+
+        <f:if condition="{imgoverlay} == 1">
+          <f:then>
+            <div class="imgoverlay-wrap">
+              <div class="imgo-bg"></div>
+              <div class="imgo-content">
+                <div class="tl"></div>
+                <div class="tr"></div>
+                <div class="bl"></div>
+                <div class="br"></div>
+                <div class="m"></div>
+                <div class="imgo-txt h2">{item.files.0.alternative}</div>
+              </div>
+            </div>
+          </f:then>
+        </f:if>
+      </div>
+
+      <f:if condition="{info} == 1">
+        <f:then>
+          <div class="data" data-srcsets="{f:render(partial: 'fluid-image-json', arguments: {imgs:'{item.files}'})}"></div>
+        </f:then>
+      </f:if>
+
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>

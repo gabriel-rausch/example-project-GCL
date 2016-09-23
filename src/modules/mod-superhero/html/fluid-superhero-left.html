@@ -1,0 +1,15 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+
+<div class="pattern com com-superhero">
+  <div class="col-left">
+    <div class="bg">
+        <v:variable.set name="data" value="{uid:'{item.files.0.originalFile.uid}', type:'cover'}" />
+        <f:render partial="fluid-image" arguments="{_all}" />
+    </div>
+    <div class="gradient"></div>
+    <div class="inner">
+      <h2 class="h1">{item.data.header}</h2>
+      <f:format.html>{item.data.bodytext}</f:format.html>
+    </div>
+  </div>

@@ -1,0 +1,426 @@
+@import "./src/css/vars.less";
+@import "./src/css/elements-icons.less";
+@import "./src/css/elements-text.less";
+
+.com-tooltip {
+  text-align: center;
+
+  .main-content-inner {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .data {
+    display: none;
+  }
+
+  .tooltip-bg {
+    position: relative;
+    display: inline-block;
+  }
+
+  .tooltip-left, .tooltip-right {
+    position: relative;
+    width: 100%;
+    float: left;
+    text-align: left;
+    z-index: 1;
+  }
+  .tooltip-right {
+    float: right;
+    text-align: right;
+    z-index: 0;
+  }
+
+  .tip{
+    position: absolute;
+
+    i{
+      position: relative;
+      cursor: pointer;
+      background: @col-green;
+      border-radius: 100%;
+      padding: 5px;
+      display: block;
+      color: white;
+      border: 3px solid @col-greenDark;
+      width: 30px;
+      height: 30px;
+
+      &:before{
+        .icon();
+        .get-icon-tooltip-plus();
+        font-size: 3rem;
+        position: absolute;
+        display: block;
+        left: -4px;
+        top: -4px;
+      }
+    }
+
+    &.open {
+      i {
+        &:before {
+          .get-icon-tooltip-minus();
+        }
+      }
+
+      .tip-content {
+        display: block;
+      }
+    }
+
+    &.tl {
+      .tip-content {
+        right: 0px;
+        top: 17px;
+        &:before {
+          top: 0;
+          right: -35px;
+          transform: rotate(270deg);
+        }
+      }
+    }
+
+    &.tr {
+      .tip-content {
+        left: 0px;
+        top: 17px;
+        &:before {
+          top: 0;
+          left: -35px;
+        }
+      }
+    }
+
+    &.bl {
+      .tip-content {
+        right: 20px;
+        bottom: 17px;
+        &:before {
+          bottom: 0;
+          right: -35px;
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &.br {
+      .tip-content {
+        left: 40px;
+        bottom: 17px;
+        &:before {
+          bottom: 0;
+          left: -35px;
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  .tip-content {
+    position: absolute;
+    background: @col-antrazit;
+    color: white;
+    width: 190px;
+    padding: 1.5rem 1.5rem;
+    text-align: left;
+    display: none;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      border-style: solid;
+      border-width: 0 40px 40px 0;
+      border-color: transparent #4a4e4e transparent transparent;
+    }
+
+    p, ul, ol {
+      color: white;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+
+
+  &.tooltip-1 {
+    background: white;
+
+    .main-content-inner {
+      padding-top: 40px;
+    }
+
+    .tooltip-bg {
+      width: 178px;
+      height: 450px;
+    }
+    .tip-1 {
+      left: 84%;
+      top: 11%;
+    }
+    .tip-2 {
+      right: 81%;
+      top: 13%;
+    }
+  }
+
+  &.tooltip-2 {
+    .tooltip-bg {
+      width: 390px;
+      height: 377px;
+    }
+    .tip {
+      display: none;
+    }
+    .tip-1 {
+      left: 56%;
+      top: 38%;
+    }
+    .tip-2 {
+      left: 30%;
+      bottom: 37%;
+    }
+    .tip-3 {
+      left: 25%;
+      bottom: 22%;
+    }
+
+    .tip-img {
+      visibility: hidden;
+    }
+    .tip-mobile {
+      visibility: visible;
+    }
+  }
+
+
+  &.tooltip-3 {
+    background: white;
+
+    .tooltip-bg {
+      width: 350px;
+      height: 340px;
+    }
+    .tip-1 {
+      left: 26%;
+      top: 5%;
+    }
+    .tip-2 {
+      right: 20%;
+      top: 30%;
+    }
+    .tip-3 {
+      left: 66%;
+      top: 44%;
+    }
+  }
+
+@media screen and @phone {
+
+  .tooltip-left, .tooltip-right {
+    z-index: inherit;
+  }
+
+  .tip {
+
+    &.tl {
+      .tip-content {
+        right: 70px;
+        top: 17px;
+      }
+    }
+
+    &.tr {
+      .tip-content {
+        left: 70px;
+        top: 17px;
+      }
+    }
+
+    &.bl {
+      .tip-content {
+        right: 70px;
+        bottom: 17px;
+      }
+    }
+
+    &.br {
+      .tip-content {
+        left: 70px;
+        bottom: 17px;
+      }
+    }
+  }
+
+  .tip-content {
+    width: 220px;
+  }
+
+  &.tooltip-1 {
+    .tooltip-bg {
+      width: 208px;
+      height: 550px;
+    }
+    .tooltip-left {
+      .tooltip-bg {
+        height: 510px;
+        top: 40px;
+      }
+    }
+  }
+
+  &.tooltip-2 {
+    .tooltip-bg {
+      width: 500px;
+      height: 500px;
+    }
+  }
+}
+
+@media screen and @tablet {
+
+  .tooltip-left, .tooltip-right {
+    width: 50%;
+    text-align: center;
+  }
+
+  .tip {
+    &.tl {
+      .tip-content {
+        right: 110px;
+        top: 17px;
+      }
+    }
+
+    &.tr {
+      .tip-content {
+        left: 110px;
+        top: 17px;
+      }
+    }
+
+    &.bl {
+      .tip-content {
+        right: 110px;
+        bottom: 17px;
+      }
+    }
+
+    &.br {
+      .tip-content {
+        left: 110px;
+        bottom: 17px;
+      }
+    }
+  }
+
+  .tip-content {
+    width: 290px;
+    z-index: 1;
+  }
+
+  &.tooltip-2 {
+
+    .tip {
+      display: block;
+    }
+    .tip-img, .tip-mobile {
+      visibility: hidden;
+    }
+    .tip-img-default {
+      visibility: visible;
+    }
+
+    .tip-content {
+      width: 150px;
+    }
+
+    .tip-1 {
+      .tip-content {
+        right: auto;
+        left: 90px;
+        bottom: 17px;
+        &:before {
+          right: auto;
+          bottom: 0;
+          left: -35px;
+          transform: rotate(90deg);
+        }
+      }
+    }
+    .tip-3, .tip-2 {
+      left: 18%;
+      .tip-content {
+        left: auto;
+        right: 90px;
+        bottom: 17px;
+        &:before {
+          left: auto;
+          bottom: 0;
+          right: -35px;
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .tip-2 {
+      left: 36%;
+    }
+  }
+}
+
+@media screen and @desktop {
+
+  &.tooltip-1 {
+    .main-content-inner {
+      padding-top: 80px;
+    }
+  }
+
+  &.tooltip-2 {
+    .tip-content {
+      width: 280px;
+    }
+  }
+
+  &.tooltip-3 {
+    .main-content-inner {
+      position: relative;
+    }
+    .part-1 {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+    .part-2 {
+      margin-bottom: 30px;
+      margin-left: -10%;
+    }
+    .part-3 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  &.tooltip-3 {
+
+    .tooltip-bg {
+      width: 450px;
+      height: 380px;
+    }
+    .tip-1 {
+      left: 47%;
+      top: 8%;
+    }
+    .tip-2 {
+      right: 30%;
+      top: 20%;
+    }
+    .tip-3 {
+      left: 30%;
+      top: 16%;
+    }
+  }
+}
+}

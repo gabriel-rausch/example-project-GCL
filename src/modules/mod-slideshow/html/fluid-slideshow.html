@@ -1,0 +1,19 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+<f:comment>
+  navigation variants:
+    - dark
+    - outside
+</f:comment>
+
+<v:variable.set name="imgSize" value="{f:if(condition: '{dark} == 1', then: 'cover', else: 'contain')}" />
+
+<div class="mod com-slideshow{f:if(condition: '{dark} == 1', then: ' dark')}{f:if(condition: '{outside} == 1', then: ' outside')}"
+     data-srcsets="{f:render(partial: 'fluid-image-json', arguments: {imgs:'{item.files}'})}">
+  <div class="slideshow-inner">
+    <f:render partial="fluid-image" arguments="{data: {uid:'{item.files.0.originalFile.uid}', type:imgSize}}" />
+  </div>
+
+  <div class="nav next"><span class="icon icon-arrow-next"></span></div>
+  <div class="nav prev"><span class="icon icon-arrow-prev"></span></div>
+</div>

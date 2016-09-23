@@ -1,0 +1,108 @@
+@import './src/css/vars.less';
+
+.com-eventwidget {
+  background: @col-antrazit;
+  padding:0;
+
+  .main-content {
+    padding: 0;
+  }
+
+  .widget-title {
+    background: @col-antrazitLight;
+    text-align: center;
+    color: white;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  .events {
+    padding: @padding-h-30;
+    white-space: nowrap;
+  }
+
+  .events-inner {
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .event {
+    display: inline-block;
+    width: auto;
+    color: white;
+    overflow: hidden;
+    height: 120px;
+    box-sizing: border-box;
+    padding: 0 30px;
+    margin: 45px 4%;
+
+    .event-title, p {
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+      display: block;
+    }
+
+    .event-title {
+      font-weight: bold;
+    }
+
+    p {
+      margin: .3rem 0;
+      color: @col-grey;
+    }
+
+    b {
+      line-height: 3;
+    }
+  }
+
+  .nav {
+    position: absolute;
+    top: 46%;
+    left: 5px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+    color: @col-grey;
+    }
+
+    &.next {
+      left: auto;
+      right: 5px;
+    }
+  }
+
+  @media screen and @tablet {
+    .nav {
+      left: 25px;
+
+      &.next {
+        right: 25px;
+      }
+    }
+    .events {
+      padding: @padding-v-60 100px;
+    }
+    .event {
+      padding: 0 30px;
+      margin: 45px 7%;
+      width: auto;
+    }
+  }
+
+  @media screen and @desktop {
+    .event {
+      margin: 45px 3%;
+    }
+  }
+
+  @media screen and @large1500 {
+    .event {
+      margin: 45px 4%;
+    }
+  }
+}
+

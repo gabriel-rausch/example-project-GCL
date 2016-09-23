@@ -1,0 +1,16 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+
+{f:if(condition: '1 == 1', then: '{')}
+<f:for each="{imgs}" as="img" key="i">
+    'item{i}': {f:if(condition: '1 == 1', then: '{')}
+        'alternative': '{img.alternative}',
+        'description': '{img.description}',
+        'urls': ['{f:uri.image(src:img.originalFile.uid,height:'550c')}',
+        '{f:uri.image(src:img.originalFile.uid,height:'1000c')}',
+        '{f:uri.image(src:img.originalFile.uid,height:'1400c')}',
+        '{f:uri.image(src:img.originalFile.uid,height:'1920c')}']
+    {f:if(condition: '1 == 1', then: '}')}
+    <f:if condition="{i} < {v:math.subtract(a: '{f:count(subject: imgs)}', fail: 1, b: 1)}"><f:then>,</f:then></f:if>
+</f:for>
+{f:if(condition: '1 == 1', then: '}')}

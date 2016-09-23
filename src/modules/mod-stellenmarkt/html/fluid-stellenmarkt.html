@@ -1,0 +1,21 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+
+<div id="c{item.data.uid}" class="pattern com-stellenmarkt">
+  <div class="main-content">
+
+    <div class="content">
+      <h1 class="h1">{item.data.header}</h1>
+
+      <v:variable.set name="tenders" value="{v:content.get(column:'0', pageUid:'{pageIdStellenmarkt}', render:'FALSE')}" />
+      <f:for each="{tenders}" as="tender">
+        <div class="tender">
+          <span class="tender-title h2">{tender.header}</span>
+          <f:format.html>{tender.bodytext}</f:format.html>
+        </div>
+      </f:for>
+      <div class="clear"></div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,28 @@
+@import "./src/css/vars.less";
+@import "./src/css/elements-text.less";
+@import "./src/css/mixins.less";
+
+.com-about {
+  position: relative;
+  background: #E6E6E6;
+
+  .col-left {
+    width: 100%;
+    box-sizing: border-box;
+    background: @col-greylight;
+  }
+
+  .col-right {
+    width: 100%;
+  }
+
+  @media screen and @desktop {
+    .col-left {
+      width: 60%;
+    }
+
+    .col-right {
+      width: 40%;
+    }
+  }
+}

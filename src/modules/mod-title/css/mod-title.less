@@ -1,0 +1,31 @@
+@import "./src/css/vars.less";
+@import "./src/css/elements-text.less";
+@import "./src/css/mixins.less";
+
+.com-title {
+  text-align: center;
+
+  &.white {
+    background: white;
+  }
+
+  .h3, h3 {
+    margin-top: 0.2rem;
+    color: lighten(@col-antrazit, 35%);
+    font-weight:normal;
+  }
+
+  .border {
+    width: 110px;
+    border-bottom: 10px solid @col-green;
+    display: inline-block;
+    margin-top: 20px;
+  }
+
+@media screen and @phone {
+
+  .h3, h3 {
+    .h3-bigger();
+  }
+}
+}

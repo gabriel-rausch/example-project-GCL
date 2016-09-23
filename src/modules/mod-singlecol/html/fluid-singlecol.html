@@ -1,0 +1,60 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+
+<div class="pattern com com-singlecol{f:if(condition: '{graphic} == 1', then: ' graphic')}{f:if(condition: '{columns} == 1', then: ' columns')}{f:if(condition: '{border} == 1', then: ' border')}{f:if(condition: '{white} == 1', then: ' white')}{f:if(condition: '{slideshow} == 1', then: ' slideshow')}{f:if(condition: '{facts} == 1', then: ' facts')}">
+  <div class="main-content">
+    <div class="main-content-inner">
+
+
+      <f:if condition="{graphic} == 1">
+        <f:then>
+          <div class="content">
+            <f:format.html>{item.data.bodytext}</f:format.html>
+          </div>
+        </f:then>
+
+        <f:else>
+
+          <f:if condition="{columns} == 1">
+            <f:then>
+              <div class="content">
+                <h2>{item.data.header}</h2>
+                <f:format.html>{item.data.bodytext}</f:format.html>
+              </div>
+            </f:then>
+
+            <f:else>
+              <div class="inner">
+
+                <f:if condition="{slideshow} == 1">
+
+                  <f:then>
+                    <f:render partial="fluid-slideshow" arguments="{item:item,outside:1}" />
+                  </f:then>
+
+                  <f:else>
+                    <h2>{item.data.header}</h2>
+
+                    <f:comment>
+                      Fix for bug in fluid html-renderer: if td>ul, then td>nbsp;+ul is generated
+                    </f:comment>
+                    <v:format.replace substring="<td>&nbsp;" replacement="<td>">
+                      <f:format.html>{item.data.bodytext}</f:format.html>
+                    </v:format.replace>
+                  </f:else>
+
+                </f:if>
+              </div>
+            </f:else>
+
+          </f:if>
+        </f:else>
+
+      </f:if>
+
+
+
+
+    </div>
+  </div>
+</div>

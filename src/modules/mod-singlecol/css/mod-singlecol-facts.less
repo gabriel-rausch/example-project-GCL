@@ -1,0 +1,52 @@
+@import "./src/css/vars.less";
+@import "./src/css/elements-text.less";
+
+.com-singlecol.facts {
+
+  h2 {
+    color: @col-antrazit;
+    opacity: .2;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  table {
+    td {
+      display: block;
+      vertical-align: middle;
+    }
+    td:first-child {
+      .h1();
+      padding: 0;
+      color: @col-green;
+    }
+  }
+
+@media screen and @phone {
+  h2 {
+    .h1();
+    color: @col-antrazit;
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and @tablet {
+
+
+  table {
+    td {
+      display: table-cell;
+    }
+    td:first-child {
+      padding: 1rem 2rem 1rem 0;
+      border-right: 2px solid #dbdcdc;
+      text-align: right;
+    }
+    td:last-child {
+      padding: 0 0 0 2rem;
+    }
+  }
+
+}
+}
+

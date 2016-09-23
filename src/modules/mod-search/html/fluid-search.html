@@ -1,0 +1,57 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+
+<div class="pattern com com-search">
+
+  <div class="bg"></div>
+
+  <div class="main-content">
+    <div class="main-content-inner">
+      <div class="col-right">
+          <div class="content">
+            <f:if condition="{f:cObject(typoscriptObjectPath: \"lib.language\")} == 'EN'">
+              <f:then>
+                <h4>SEARCH</h4>
+              </f:then>
+              <f:else>
+                <h4>SUCHE</h4>
+              </f:else>
+            </f:if>
+
+            <form action="{f:uri.page(pageUid: pageSearch)}" method="post">
+
+              <f:if condition="{f:cObject(typoscriptObjectPath: \"lib.language\")} == 'EN'">
+                <f:then>
+                  <input class="search-input" type="text" placeholder="Enter search term" autocomplete="off" name="tx_indexedsearch[sword]">
+                </f:then>
+                <f:else>
+                  <input class="search-input" type="text" placeholder="Suchbegriff eingeben" autocomplete="off" name="tx_indexedsearch[sword]">
+                </f:else>
+              </f:if>
+
+              <label for="search-btn" class="search-btn"><i class="icon icon-search"></i></label>
+              <input id="search-btn" type="submit" name="tx_indexedsearch[submit_button]"></input>
+            </form>
+          </div>
+      </div>
+
+      <div class="col-left">
+        <div class="content">
+
+          <f:if condition="{f:cObject(typoscriptObjectPath: \"lib.language\")} == 'EN'">
+            <f:then>
+              <h1 class="h1">SEARCH RESULTS</h1>
+            </f:then>
+            <f:else>
+              <h1 class="h1">ERGEBNISSE</h1>
+            </f:else>
+          </f:if>
+          <v:content.render contentUids="{0:item.data.uid}" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+
+</div>

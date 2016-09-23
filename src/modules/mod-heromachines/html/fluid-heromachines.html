@@ -1,0 +1,34 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+
+<div class="pattern com com-heromachines">
+  <div class="main-content">
+    <div class="main-content-inner">
+
+      <div class="big-view">
+        <div class="big-img">
+          <f:render partial="fluid-image" arguments="{data: {uid:'{item.files.0.originalFile.uid}', type:'contain'}}" />
+        </div>
+        <div class="txt">
+
+          <v:iterator.explode content="{item.files.0.link}" glue="#" as="internallink">
+            <a href="#uid{internallink.1}"class="link-arrow">Mehr</a>
+          </v:iterator.explode>
+        </div>
+      </div>
+
+      <div class="thumbnails">
+        <f:for each="{item.files}" as="thumb">
+          <div class="thumbnail">
+            <div class="thumb-img">
+              <f:render partial="fluid-image" arguments="{data: {uid:'{thumb.originalFile.uid}', type:'contain'}}" />
+            </div>
+            <v:iterator.explode content="{thumb.link}" glue="#" as="internallink">
+              <a href="#uid{internallink.1}" class="link"><span>{thumb.alternative}</span></a>
+            </v:iterator.explode>
+          </div>
+        </f:for>
+      </div>
+    </div>
+  </div>
+</div>

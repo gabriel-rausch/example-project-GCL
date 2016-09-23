@@ -1,0 +1,47 @@
+@import './src/css/mixins.less';
+@import './src/css/vars.less';
+
+.font-face('TheSans', 'thesansb-w4selig', 300);
+.font-face('TheSans', 'thesansb-w5pla', 400);
+.font-face('TheSans', 'thesansb-w7bld', 700);
+
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  .mainFont();
+  background: @col-greylight;
+}
+
+
+.error {
+  position: absolute;
+  z-index: 99999;
+  top: 100px;
+  left: 0;
+
+  box-sizing: border-box;
+  width: auto;
+  margin: 20px;
+  padding: 20px;
+
+  color: #a94442;
+  border: #ebccd1 1px solid;
+  border-radius: 4px;
+  background: #ebccd1;
+}
+
+
+@media screen and @desktop {
+
+  .main-wrapper {
+    margin-top: 80px;
+    margin-bottom: 40px;
+
+    body.subnav & {
+      margin-top: 125px;
+    }
+  }
+}

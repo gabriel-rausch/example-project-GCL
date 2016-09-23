@@ -1,0 +1,194 @@
+@import './src/css/mixins.less';
+@import './src/css/vars.less';
+
+
+@logo-width: 163px;
+@logo-height: 53px;
+
+.com-header {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  box-sizing: border-box;
+  width: 100%;
+  background: white;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  text-align: center;
+  overflow-x: hidden;
+  padding: 0 @padding-h-30;
+
+  body.subnav & {
+    box-shadow: none;
+  }
+  
+  &.search-active {
+    .search-close {
+      right: 0;
+      opacity: 1;
+    }
+    .search-btn {
+      right: auto;
+      left: 0;
+      color: @col-greenDark;
+    }
+    .search-input {
+      width: 80%;
+      opacity: 1;
+      left: 10%;
+    }
+    .lang-picker {
+      display: none;
+    }
+    .logo {
+      opacity: 0;
+    }
+    .mobile-nav {
+      display: none;
+    }
+  }
+
+  .logo {
+    display: inline-block;
+    width: 135px;
+    height: 45px;
+    background-image: url('img/KADIA-logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    -ms-behavior: url(/backgroundsize.min.htc);
+    transition: all @speed-fast;
+    margin: 16px 0 6px;
+
+    .svg & {
+      background-image: url('img/KADIA-logo.svg');
+      //background: white;
+    }
+
+    &:hover {
+      opacity: .9;
+    }
+  }
+
+  .search-input {
+    position: absolute;
+    top: 30px;
+    left: 1000px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    width: 0;
+    padding: 0;
+    transition: all @speed-fast;
+    opacity: 0;
+    color: @col-antrazit;
+    border: none;
+    outline: none;
+    background: transparent;
+    .mainFont();
+  }
+
+  #search-btn {
+    display: none;
+  }
+
+  .search-btn, .search-close {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    transition: all @speed-fast;
+    color: @col-antrazit;
+    font-size: 1.3rem;
+    cursor: pointer;
+
+    &:hover {
+      color: @col-greenDark;
+    }
+  }
+  .search-close {
+    font-size: 1rem;
+    opacity: 0;
+    right: -100px;
+  }
+
+  .lang-picker {
+    position: absolute;
+    right: 37px;
+    top: 30px;
+    margin: 0;
+
+    a {
+      font-style: normal;
+      font-weight: normal;
+      color: @col-antrazit;
+      opacity: 0.5;
+
+      &:hover {
+        color: @col-greenDark;
+      }
+    }
+
+    li {
+      position: relative;
+      list-style: none;
+
+      &:hover {
+        ul {
+          display: block;
+        }
+      }
+
+      ul {
+        position: absolute;
+        left: 0;
+        display: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  .mobile-nav {
+    position: absolute;
+    left: 0;
+    top: 31px;
+  }
+
+
+@media screen and @desktop {
+  position: fixed;
+  text-align: left;
+  padding: 0;
+  box-shadow: 0 2px 1px rgba(0,0,0,0.1);
+
+  body.subnav & {
+    box-shadow: 0 2px 1px rgba(0,0,0,0.1);
+  }
+
+  &.search-active {
+    .search-btn {
+      right: 47%;
+      left: auto;
+    }
+    .search-input {
+      width: 37%;
+      left: 55%;
+    }
+    .logo {
+      display: inline-block;
+      opacity: 1;
+    }
+  }
+
+  .logo {
+    width: @logo-width;
+    height: @logo-height;
+  }
+
+  .lang-picker {
+    right: 70px;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+}
+}

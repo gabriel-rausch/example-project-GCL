@@ -1,0 +1,83 @@
+@import "./src/css/vars.less";
+@import "./src/css/elements-text.less";
+
+.com-heromachines {
+  background: white;
+
+  .big-view {;
+    padding: @padding-v-30 @padding-h-30 @padding-v-30 @padding-h-30;
+
+    .big-img {
+      position: relative;
+      width: 100%;
+      height: 400px;
+    }
+
+    .txt {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+
+  .thumbnails {
+    display: table;
+    width: 100%;
+  }
+
+  .thumbnail {
+    display: table-cell;
+    cursor: pointer;
+
+    &:hover {
+      .link span{
+        color: @col-antrazit;
+        border-bottom: 2px solid @col-green;
+      }
+    }
+
+    .thumb-img{
+      display: none;
+    }
+    .link {
+      display: block;
+      text-align: center;
+      margin: 10px 0 50px;
+      span{
+        font-weight: normal;
+        font-style: normal;
+        color: @col-grey;
+        border-bottom: 2px solid transparent;
+        padding: 4px;
+      }
+    }
+  }
+
+
+@media screen and @desktop {
+
+  .big-view {
+    .big-img {
+      height: 430px;
+    }
+    .txt {
+      display: none;
+    }
+  }
+
+  .thumbnail {
+    .thumb-img{
+      display: block;
+      position: relative;
+      height: 80px;
+    }
+  }
+}
+
+@media screen and @desktop and (min-height: 800px) {
+  .big-view {
+    .big-img {
+      height: 530px;
+    }
+  }
+}
+}

@@ -1,0 +1,20 @@
+@import './src/css/vars.less';
+
+.com-image {
+  background-repeat: no-repeat;
+
+  &.cover, &.contain {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    -ms-behavior: url(/backgroundsize.min.htc);
+    background-position: center center;
+  }
+
+  &.contain {
+    background-size: contain;
+  }
+}

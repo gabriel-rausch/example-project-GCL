@@ -1,0 +1,69 @@
+@import "./src/css/vars.less";
+@import "./src/css/elements.less";
+@import "./src/css/elements-text.less";
+@import "./src/css/mixins.less";
+
+.com-fullpictue {
+  position: relative;
+
+  .main-content {
+    position: relative;
+  }
+
+  .bg {
+    position: relative;
+    height: 300px;
+  }
+
+  .quote {
+    position: static;
+    width: 100%;
+    color: @col-antrazit;
+    box-sizing: border-box;
+    padding: 120px 2rem;
+
+    .description {
+      font-style: italic;
+      font-size: 1.4rem;
+    }
+    .cite {
+      text-align: right;
+      margin-top: 20px;
+      opacity: 0.5;
+      font-weight: bold;
+    }
+  }
+
+@media screen and @tablet {
+
+  .com-slideshow {
+    height: 100%;
+  }
+
+  .bg {
+    height: 530px;
+  }
+
+  .quote {
+    position: absolute;
+    bottom: 100px;
+    width: 55%;
+    padding: 0;
+    padding-left: 120px;
+    color: white;
+  }
+}
+
+@media screen and @desktop {
+  .quote {
+    width: 40%;
+  }
+}
+
+@media screen and @large1500 {
+  .bg {
+    height: 600px;
+  }
+}
+}
+

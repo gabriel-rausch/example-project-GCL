@@ -1,0 +1,14 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+
+<div class="pattern com-title{f:if(condition: '{white} == 1', then: ' white')}">
+  <div class="main-content">
+
+    <div class="content">
+      <h1 class="h1">{item.data.header}</h1>
+      <f:format.html>{item.data.bodytext}</f:format.html>
+      <span class="border"></span>
+    </div>
+
+  </div>
+</div>

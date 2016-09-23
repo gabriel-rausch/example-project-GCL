@@ -1,0 +1,31 @@
+@import "./src/css/vars.less";
+
+.com-fullimageparallax {
+  padding: 0;
+
+  .bg {
+    position: relative;
+    padding-top: 40%;
+
+    .com-image {
+      //background-size: 100% auto;
+      //background-position-y: 0;
+      //background-repeat: repeat-y;
+    }
+  }
+
+  &:last-child{
+    margin-bottom: -40px;
+  }
+
+@media screen and @tablet {
+  .bg {
+    padding-top: 35%;
+  }
+}
+@media screen and @large {
+  .bg {
+    //padding-top: 25%;
+  }
+}
+}
